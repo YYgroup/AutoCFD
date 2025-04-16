@@ -1,0 +1,18 @@
+description: "Do a RAS simulation of vortex shedding around a cylinder using simpleFoam with inlet velocity of 1 m/s. Models and parameters include the kOmegaSST turbulence model. Fluid properties are Newtonian with a kinematic viscosity of 0.01. Control settings include: endTime = 5000, writeControl = runTime, and writeInterval = 50.\n
+Initial boundary conditions: \n
+omega: 0.075. \n
+p: 'out': 0. \n
+U: The internalField is (1 0 0). 'in': (1 0 0). 'out': zeroGradient. 'cylinder': (0 0 0)."
+mesh_path: "Benchmark/mesh/Cylinder_wake-4/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

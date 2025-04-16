@@ -1,0 +1,17 @@
+description: "Do a steady-state simulation of vortex shedding around a cylinder using simpleFoam with inlet velocity of (1 0 0) m/s, laminar flow model, and kinematic viscosity nu = 0.05. The outlet velocity is zero gradient. Control settings include: endTime = 500, writeControl = runTime, and writeInterval = 10. \n
+Initial boundary conditions:\n
+p: 'out' is 0 . \n
+U: The internalField is (1 0 0). 'in' is (1 0 0). 'out' is zeroGradient. 'cylinder' is (0 0 0)."
+mesh_path: "Benchmark/mesh/Cylinder_wake-5/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

@@ -1,0 +1,14 @@
+description: "Do a laminar simulation of flow between two parallel plates using pimpleFoam with moving wall velocity of (1 0 0) m/s, and a Newtonian fluid with kinematic viscosity of 1.5e-3 m^2/s. Control settings include: endTime = 25, and writeInterval = 0.5."
+mesh_path: "Benchmark/mesh/Couette_flow-laminar/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

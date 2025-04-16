@@ -1,0 +1,19 @@
+description: "Do a RAS simulation of jet flow using simpleFoam with inlet velocity of (10 0 0) m/s, and a Newtonian fluid with kinematic viscosity of 1.5e-5 m^2/s. Turbulence modeled with kOmegaSST. Control settings include: endTime = 1000, and writeInterval = 50.\n
+Initial boundary conditions: \n
+k: inlet and atmosphere: 0.01 \n
+nut: 0 \n
+omega: inlet and atmosphere: 1 \n
+U: The internalField is (1 0 0). inlet is (10 0 0). atmosphere: pressure InletOutlet velocity with value (0 0 0)."
+mesh_path: "Benchmark/mesh/Jet/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

@@ -1,0 +1,14 @@
+description: "Do a RAS simulation of flow in a planar contraction channel using simpleFoam with inlet velocity of 3.876 m/s, and a Newtonian fluid with kinematic viscosity of 1e-6 m^2/s. Turbulence modeled with kOmegaSST. The omega is 40. Control settings include: endTime = 0.25, and writeInterval = 0.01."
+mesh_path: "Benchmark/mesh/Forward_facing_step-RANS/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

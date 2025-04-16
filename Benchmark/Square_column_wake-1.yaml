@@ -1,0 +1,19 @@
+description: "Do a RAS simulation of flow around a rectangular cylinder using pimpleFoam with inlet velocity 1 m/s, outlet velocity 0 m/s. Turbulence modeled with kOmegaSST. Fluid properties include dynamic viscosity 2e-06 m^2/s. Control settings include: endTime = 100, and writeInterval = 0.5.\n
+Initial boundary conditions: \n
+k: inlet and cylinder: 0.00375 \n
+omega: inlet and cylinder: 0.0612 \n
+p: 101325.\n 
+U: The internalField and inlet is (1 0 0). outlet and cylinder: (0 0 0)."
+mesh_path: "Benchmark/mesh/Square_column_wake-1/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

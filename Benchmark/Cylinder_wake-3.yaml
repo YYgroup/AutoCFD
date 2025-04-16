@@ -1,0 +1,19 @@
+description: "Do a RAS simulation of vortex shedding around a cylinder using pimpleFoam with inlet velocity = (1 0 0), the outlet velocity = (0 0 0), k-omega SST turbulence model, and Newtonian fluid properties (nu = 0.01 m^2/s). Control settings include: endTime = 300, writeControl = runTime, and writeInterval = 1.\n
+Initial boundary conditions:\n
+The k value of 'cylinder', 'out' and 'in' is 0.00015. \n
+The omega value of 'cylinder', 'out' and 'in' is 0.0045. \n
+p: 'out': 0.\n
+U: The internalField and 'in' are  (1 0 0). The 'out' and 'cylinder' are (0 0 0)."
+mesh_path: "Benchmark/mesh/Cylinder_wake-3/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

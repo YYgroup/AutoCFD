@@ -1,0 +1,14 @@
+description: "Do a laminar simulation of flow in a planar contraction channel using simpleFoam with inlet velocity of 0.03876 m/s, and a Newtonian fluid with kinematic viscosity of 1e-5 m^2/s. Control settings include: endTime = 0.25, and writeInterval = 0.01."
+mesh_path: "Benchmark/mesh/Forward_facing_step-laminar/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

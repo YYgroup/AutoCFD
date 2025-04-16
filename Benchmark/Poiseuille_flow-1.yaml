@@ -1,0 +1,17 @@
+description: "Do a laminar flow simulation of pipe flow using icoFoam with an inlet velocity of (1 0 0) m/s. The fluid has a kinematic viscosity of 0.01 m²/s. Control settings include: endTime = 20, writeControl = runTime, and writeInterval = 1. \n
+Initial boundary conditions: \n
+p: outlet: 0. \n
+U: inlet: (1 0 0)."
+mesh_path: "Benchmark/mesh/Poiseuille_flow-1/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

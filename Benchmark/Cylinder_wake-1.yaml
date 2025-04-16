@@ -1,0 +1,17 @@
+description: "Do a laminar simulation of vortex shedding around a cylinder using icoFoam with inlet velocity of (1 0 0) m/s. Fluid properties: Newtonian fluid with kinematic viscosity of 0.01 m^2/s. Use laminar turbulence model. Control settings include: endTime = 350, writeControl = runTime, and writeInterval = 1. \n
+Initial boundary conditions:\n
+p: 'out': 0, 'in': zeroGradient \n
+U: The internalField is (1 0 0).  'in': (1 0 0). 'out': zeroGradient. 'cylinder': (0 0 0)."
+mesh_path: "Benchmark/mesh/Cylinder_wake-1/blockMeshDict"
+
+max_loop: 10
+temperature: 0.7
+run_times: 5
+MetaGPT_PATH: "xxx"
+
+# Qwen2.5-72B-Instruct
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

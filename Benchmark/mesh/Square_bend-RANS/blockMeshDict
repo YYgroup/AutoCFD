@@ -1,0 +1,131 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2406                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   0.001;
+
+xin     -50;
+xout    -500;
+rad0    25;
+rad1    75;
+zmax    25;
+
+nxin    20;
+nxout   200;
+nxbend  30;
+ny      20;
+nz      20;
+
+// Coarser and smaller
+#if 0
+xin     #eval{ $xin / 5 };
+xout    #eval{ $xout / 5 };
+zmax    #eval{ $zmax / 5 };
+
+nxin    #eval{ round ($nxin / 5) };
+nxout   #eval{ round ($nxout / 5) };
+nz      #eval{ round ($nz / 5) };
+#endif
+
+zmin    #eval{ -$zmax };
+
+vertices
+(
+    // back-plane:
+    // inlet region
+    (  $xin   $rad0  $zmin)     // pt 0
+    (     0   $rad0  $zmin)     // pt 1
+    (     0   $rad1  $zmin)     // pt 2
+    (  $xin   $rad1  $zmin)     // pt 3
+    // outlet region
+    ( $xout  -$rad1  $zmin)     // pt 4
+    (     0  -$rad1  $zmin)     // pt 5
+    (     0  -$rad0  $zmin)     // pt 6
+    ( $xout  -$rad0  $zmin)     // pt 7
+    // bend mid-points
+    ( $rad0       0  $zmin)     // pt 8
+    ( $rad1       0  $zmin)     // pt 9
+    // front-plane:
+    // inlet region
+    (  $xin   $rad0  $zmax)     // pt 0 + 10
+    (     0   $rad0  $zmax)     // pt 1 + 10
+    (     0   $rad1  $zmax)     // pt 2 + 10
+    (  $xin   $rad1  $zmax)     // pt 3 + 10
+    // outlet region
+    ( $xout  -$rad1  $zmax)     // pt 4 + 10
+    (     0  -$rad1  $zmax)     // pt 5 + 10
+    (     0  -$rad0  $zmax)     // pt 6 + 10
+    ( $xout  -$rad0  $zmax)     // pt 7 + 10
+    // bend mid-points
+    ( $rad0       0  $zmax)     // pt 8 + 10
+    ( $rad1       0  $zmax)     // pt 9 + 10
+);
+
+blocks
+(
+    hex (0 1 2 3  10 11 12 13) inlet  ( $nxin   $ny $nz)  simpleGrading (1 1 1)
+    hex (4 5 6 7  14 15 16 17) outlet ( $nxout  $ny $nz)  simpleGrading (1 1 1)
+    hex (1 8 9 2  11 18 19 12) bend1  ( $nxbend $ny $nz)  simpleGrading (1 1 1)
+    hex (5 9 8 6  15 19 18 16) bend2  ( $nxbend $ny $nz)  simpleGrading (1 1 1)
+);
+
+edges
+(
+    // block 2
+    arc  1  8  origin (0 0 $zmin)
+    arc  2  9  origin (0 0 $zmin)
+    arc 11 18  origin (0 0 $zmax)
+    arc 12 19  origin (0 0 $zmax)
+    // block 3
+    arc  6  8  origin (0 0 $zmin)
+    arc  5  9  origin (0 0 $zmin)
+    arc 16 18  origin (0 0 $zmax)
+    arc 15 19  origin (0 0 $zmax)
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 10 13 3)
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (4 14 17 7)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// The defaultFaces == outside "walls"
+defaultPatch
+{
+    name walls;
+    type wall;
+}
+
+
+// ************************************************************************* //
