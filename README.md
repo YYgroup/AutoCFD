@@ -35,7 +35,7 @@ Model Download Links: [Huggingface](https://huggingface.co/YYgroup/AutoCFD-7B)
 
 ## Datasets
 
-Datasets Download Links: Huggingface
+Datasets Download Links: [Huggingface](https://huggingface.co/datasets/YYgroup/NL2FOAM)
 
 
 
