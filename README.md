@@ -29,7 +29,7 @@ Figure 4: Benchmark performance of different methods, comparing our method again
 
 ## Model
 
-Model Download Links: Huggingface
+Model Download Links: [Huggingface](https://huggingface.co/YYgroup/AutoCFD-7B)
 
 
 
