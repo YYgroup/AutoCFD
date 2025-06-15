@@ -118,12 +118,14 @@ python src/main.py > logs/${case_name}.log
 If you find our work useful, please consider citing us!
 
 ```bibtex
-@misc{dong2025finetuninglargelanguagemodel,
-      title={Fine-tuning an Large Language Model for Automating Computational Fluid Dynamics Simulations}, 
-      author={Zhehao Dong and Zhen Lu and Yue Yang},
-      year={2025},
-      eprint={2504.09602},
-      archivePrefix={arXiv}
+@article{Dong2025,
+  title = {Fine-Tuning a Large Language Model for Automating Computational Fluid Dynamics Simulations},
+  author = {Dong, Zhehao and Lu, Zhen and Yang, Yue},
+  year = {2025},
+  journal = {Theoretical and Applied Mechanics Letters},
+  volume = {15},
+  pages = {100594},
+  doi = {10.1016/j.taml.2025.100594}
 }
 ```
 
