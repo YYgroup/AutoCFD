@@ -29,9 +29,7 @@ class PrecheckerAction(Action):
 # Response:
 '''
 
-    SUPPLEMENT_PROMPT: str = '''You are an OpenFOAM teacher, and now you need to generate all OpenFoam input files (except for grid related files) based on the problem description. Please think about it first:
-What input files need to be generated for the 0 directory?
-
+    SUPPLEMENT_PROMPT: str = '''You are an OpenFOAM teacher, and now you need to generate all OpenFoam input files (except for grid related files) based on the problem description. First, consider what input files need to be generated for the 0 directory.
 # Problem description:
 {description}
 
