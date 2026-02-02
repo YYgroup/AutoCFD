@@ -1,0 +1,19 @@
+description: "Perform a steady-state airfoil simulation using simpleFoam with the Spalart-Allmaras turbulence model. Kinematic viscosity: `nu = 2.44e-7 m²/s`. Control settings include: endTime = 1000, deltaT = 1, and writeInterval = 100.\n
+Initial boundary conditions:  \n
+nuTilda: internal field is 2e-06; farfield is 2e-06; wall_slat, wall_airfoil and wall_flap is 0.\n
+nut: fixed value 0.\n
+p: internal field is 0; farfield is 0. \n
+U: internal field is (0.99 0.1412 0); farfield is (0.99 0.1412 0); wall_slat, wall_airfoil and wall_flap is (0 0 0)"
+
+mesh_path: "Benchmark/mesh/MDA_30P_30N/polyMesh"
+max_loop: 10
+temperature: 0.6
+run_times: 10
+
+MetaGPT_PATH: "xxx"
+
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

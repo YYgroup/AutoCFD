@@ -1,0 +1,19 @@
+description: "Do a steady-state 2D airfoil simulation using simpleFoam with the Spalart-Allmaras turbulence model. Kinematic viscosity: `nu = 8.58e-6 m²/s`. Patch `walls` is the walls of the wings. Control settings include: endTime = 2000, deltaT = 1, and writeInterval = 50.\n
+Initial boundary conditions:  \n
+nuTilda: internal field is 3.432e-5; inlet & outlet is 3.432e-5; walls is fixed value 0.\n
+nut: internal field is 8.58e-6; inlet & outlet is 8.58e-6; walls is fixed value 0.\n
+p: internal field is 0; inlet & outlet is 0. \n
+U: internal field is (50.6994 8.9397 0); inlet & outlet is (50.6994 8.9397 0); walls is (0 0 0)"
+
+mesh_path: "Benchmark/mesh/NACA0012/constant/polyMesh"
+max_loop: 10
+temperature: 0.6
+run_times: 5
+
+MetaGPT_PATH: "xxx"
+
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"

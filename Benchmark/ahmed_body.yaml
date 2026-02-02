@@ -1,0 +1,20 @@
+description: "Perform a steady ahmed single simulation using simpleFoam with the k-epsilon turbulence model, nu = 1.46e-05 m²/s. Control settings include: endTime = 200, deltaT = 1, and writeInterval = 25.\n
+Initial boundary conditions:  \n
+k: internalField is 0.24; inlet, outlet, bottom and ahmed is 0.24. top, front and back is symmetry.\n
+epsilon: internalField is 345; inlet, outlet, bottom and ahmed is 345. top, front and back is symmetry.\n
+nut: fixedValue 0. top, front and back is symmetry.\n
+p: internalField is 0; outlet is 0. top, front and back is symmetry.\n
+U: internalField is (40 0 0); inlet and bottom is (40 0 0); ahmed and outlet is (0 0 0). top, front and back is symmetry."
+
+mesh_path: "Benchmark/mesh/ahmed_body/polyMesh"
+max_loop: 10
+temperature: 0.6
+run_times: 5
+
+MetaGPT_PATH: "xxx"
+
+API_KEY: "xxx"
+PROXY: "xxx"
+BASE_URL: "xxx"
+model: "xxx"
+openfoam_llm_base_url: "xxx"
