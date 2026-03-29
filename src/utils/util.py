@@ -112,11 +112,90 @@ def read_dict_and_create_files(file_dict, case_path):
     for rel_path in file_dict:
         file_path = os.path.join(case_path, rel_path)
         single_file = file_dict[rel_path]
-        # 确保文件的目录存在
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        # import pdb
-        # pdb.set_trace()
-        # 写入文件内容
         with open(file_path, "w") as outf:
             file_content = body(single_file)
             outf.write(file_content)
+
+
+def get_solver_name(case_dir: str):
+    with open(f'{case_dir}/system/controlDict', 'r') as f:
+        for line in f:
+            if 'application' in line:
+                return line.strip().split()[1].replace(';', '')
+
+    return None
+
+def parse_function_objects(file_path):
+    content = FoamFile.from_file(file_path).values
+
+    return content.get('functions', {}).keys()
+
+def get_func_id(func, case_dir):
+    postProcessingDict_path = os.path.join(case_dir, "system/postProcessingDict")
+    func_id = f"{func}_1"
+    if os.path.exists(postProcessingDict_path):
+        existed_func_ids = parse_function_objects(postProcessingDict_path)
+        for i in range(1, 100):
+            func_id = f"{func}_{i}"
+            if func_id not in existed_func_ids:
+                return func_id
+    else:
+        return func_id
+
+def write_function_objects(case_dir, function_content):
+
+    header_content = '''FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      postProcessingDict;
+}
+'''
+
+    postProcessingDict_path = os.path.join(case_dir, "system/postProcessingDict")
+    if os.path.exists(postProcessingDict_path):        
+        with open(postProcessingDict_path, 'r') as f:
+            lines = f.readlines()
+        last_brace_index = None
+        for i in reversed(range(len(lines))):
+            if lines[i].strip() == '}':
+                last_brace_index = i
+                break
+        if last_brace_index is None:
+            raise ValueError("未找到闭合的大括号 '}'")
+        lines.insert(last_brace_index, function_content + '\n')
+        with open(postProcessingDict_path, 'w') as f:
+            f.writelines(lines)
+    else:
+        with open(postProcessingDict_path, "w") as f:
+            f.write(header_content)
+            f.write("functions\n{\n")
+            f.write(function_content)
+            f.write("\n}\n")
+        print(f"postProcessingDict 已写入 {postProcessingDict_path}")
+            
+def add_latest_time_option(command, latestTime):
+    if latestTime:
+        command += f" -latestTime"
+    return command
+
+def add_time_option(command, time):
+    if time != "":
+        command += f" -time '{time}'"
+    return command
+
+def check_fields(fields):
+    if ',' in fields:
+        fields_list = [f.strip() for f in fields.split(",")]
+        return " ".join(fields_list)
+    else:
+        return fields
+def check_patches(patches):
+    if ',' in patches:
+        fields_list = [f.strip() for f in patches.split(",")]
+        return " ".join(fields_list)
+    else:
+        return patches
+    

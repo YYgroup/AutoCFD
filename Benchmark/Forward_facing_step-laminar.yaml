@@ -8,7 +8,6 @@ MetaGPT_PATH: "xxx"
 
 # Qwen2.5-72B-Instruct
 API_KEY: "xxx"
-PROXY: "xxx"
 BASE_URL: "xxx"
 model: "xxx"
 openfoam_llm_base_url: "xxx"

@@ -61,6 +61,9 @@ class RunnerAction(Action):
                 
         log_with_time(f'allrun_write:\n{allrun_write}')
 
+        if os.path.exists(os.path.join(config_path.Case_PATH, 'constant', 'polyMesh')):
+            self.remove_lines_with_string(allrun_file_path, "blockMesh")
+
         out_file = os.path.join(config_path.Case_PATH, 'Allrun.out')
         err_file = os.path.join(config_path.Case_PATH, 'Allrun.err')
 

@@ -14,7 +14,6 @@ run_times: 5
 MetaGPT_PATH: "xxx"
 
 API_KEY: "xxx"
-PROXY: "xxx"
 BASE_URL: "xxx"
 model: "xxx"
 openfoam_llm_base_url: "xxx"
