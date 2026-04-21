@@ -49,7 +49,7 @@ class RunnerAction(Action):
         if allrun_write == "None":
             async_qa_allrun = AsyncQA_Ori()
 
-            InputWritter_output = with_messages[1].content
+            InputWritter_output = with_messages[0].content
             allrun_write = parser_allrun_script(InputWritter_output)
             if "blockMesh" not in allrun_write:
                 prompt_review_blockMesh = self.CHECK_BLOCKMESH_PROMPT.format(allrun=allrun_write)
