@@ -8,7 +8,7 @@ U: internal field is (51.2856 4.4869 0); inlet & outlet is (51.2856 4.4869 0); w
 mesh_path: "Benchmark/mesh/NACA0012/constant/polyMesh"
 max_loop: 10
 temperature: 0.6
-run_times: 5
+run_times: 10
 
 MetaGPT_PATH: "xxx"
 

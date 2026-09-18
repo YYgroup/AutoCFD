@@ -9,7 +9,7 @@ U: internalField is (40 0 0); inlet and bottom is (40 0 0); ahmed and outlet is 
 mesh_path: "Benchmark/mesh/ahmed_body/polyMesh"
 max_loop: 10
 temperature: 0.6
-run_times: 5
+run_times: 10
 
 MetaGPT_PATH: "xxx"
 
